@@ -1,0 +1,19 @@
+{
+  "name": "repus",
+  "version": "1.0.0",
+  "description": "Web application that shows users how their elected representatives vote.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Weid",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.7"
+  }
+}
