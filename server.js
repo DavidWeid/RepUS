@@ -10,6 +10,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const db = require("./app/models");
+const Role = db.role;
 
 // create express app
 const app = express();
@@ -36,6 +37,7 @@ db.sequelize
   .sync({ force: true })
   .then(() => {
     console.log("Drop and re-sync db.");
+    initial();
   })
   .catch((err) => console.log(err));
 
@@ -50,5 +52,22 @@ require("./app/routes/tutorial.routes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Server up are running on port ${PORT}!`);
+  console.log(`Server up and running on port ${PORT}!`);
 });
+
+function initial() {
+  Role.create({
+    id: 1,
+    name: "User",
+  });
+
+  Role.create({
+    id: 2,
+    name: "Moderator",
+  });
+
+  Role.create({
+    id: 3,
+    name: "Administrator",
+  });
+}
