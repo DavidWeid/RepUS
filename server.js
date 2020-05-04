@@ -47,6 +47,8 @@ app.get("/", (req, res) => {
 });
 
 // include api routes
+require("./app/routes/auth.routes")(app);
+require("./app/routes/user.routes")(app);
 require("./app/routes/tutorial.routes")(app);
 
 // set port, listen for requests
@@ -58,16 +60,16 @@ app.listen(PORT, () => {
 function initial() {
   Role.create({
     id: 1,
-    name: "User",
+    name: "user",
   });
 
   Role.create({
     id: 2,
-    name: "Moderator",
+    name: "mod",
   });
 
   Role.create({
     id: 3,
-    name: "Administrator",
+    name: "admin",
   });
 }
